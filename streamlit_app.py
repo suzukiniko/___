@@ -6,7 +6,7 @@ import random
 st.title("おみくじアプリ")
 
 if  st.button("おみくじを引く"):
-    results={"大吉","吉","中吉","小吉","凶","大凶"}
+    results=["大吉","吉","中吉","小吉","凶","大凶"]
     result=random.choice(results)   
 
 #結果に応じたコメントやアドバイス
