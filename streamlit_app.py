@@ -9,4 +9,5 @@ weight=st.number_input("体重")
 tall=st.number_input("身長")
 if st.button("BMIを計測"):
     bmi=weight/tall**2
+    rounded_bmi=round(bmi, 2)
 st.write("あなたのBMIは"+str(bmi)+"です。")
