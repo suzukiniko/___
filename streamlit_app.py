@@ -5,8 +5,8 @@ import streamlit as st
 st.title("BMI診断")
 
 st.write("身長と体重を入力してください。")
-weight=st.number_input("体重")
-tall=st.number_input("身長")
+weight=st.number_input("体重",min_value=1.0)
+tall=st.number_input("身長",min_value=1.0)
 if st.button("BMIを計測"):
     bmi=weight/tall**2
     rounded_bmi=round(bmi, 2)
