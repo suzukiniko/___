@@ -2,25 +2,23 @@
 import streamlit as st
 
 # タイトルを設定
-import time
+import tempfile
+import webbrowser
+from PIL import Image, ImageDraw
 
-def count_up_timer():
-    start_time = time.time()
+# 仮の画像を作成する（例として赤い四角形を描画）
+image = Image.new('RGB', (200, 200), color='white')
+draw = ImageDraw.Draw(image)
+draw.rectangle([50, 50, 150, 150], fill='red')
 
-    while True:
-        current_time = time.time()
-        elapsed_time = current_time - start_time
+# 一時ファイルに保存する
+temp_image_path = tempfile.NamedTemporaryFile(suffix='.png', delete=False)
+image.save(temp_image_path.name)
+temp_image_path.close()
 
-        hours = int(elapsed_time // 3600)
-        minutes = int((elapsed_time % 3600) // 60)
-        seconds = int(elapsed_time % 60)
+# 一時ファイルをブラウザで開く
+webbrowser.open('file://' + temp_image_path.name)
 
-        timer_string = f"{hours:02}:{minutes:02}:{seconds:02}"
-        
-        print(f"\r{timer_string}", end="", flush=True)
-        time.sleep(1)
-
-try:
-    count_up_timer()
-except KeyboardInterrupt:
-    print("\nTimer stopped.")
+# 一時ファイルを後片付けする
+import os
+os.remove(temp_image_path.name)
