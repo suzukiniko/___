@@ -2,15 +2,25 @@
 import streamlit as st
 
 # タイトルを設定
-import plotly.express as px
+import time
 
-# データフレームを作成
-df = px.data.gapminder().query("country=='Japan'")
+def count_up_timer():
+    start_time = time.time()
 
-# 地図を描画
-fig = px.scatter_geo(df, locations="iso_alpha",
-                     size="pop", # ポイントのサイズを人口に応じて変える
-                     )
+    while True:
+        current_time = time.time()
+        elapsed_time = current_time - start_time
 
-# 地図を表示
-fig.show()
+        hours = int(elapsed_time // 3600)
+        minutes = int((elapsed_time % 3600) // 60)
+        seconds = int(elapsed_time % 60)
+
+        timer_string = f"{hours:02}:{minutes:02}:{seconds:02}"
+        
+        print(f"\r{timer_string}", end="", flush=True)
+        time.sleep(1)
+
+try:
+    count_up_timer()
+except KeyboardInterrupt:
+    print("\nTimer stopped.")
