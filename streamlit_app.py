@@ -19,6 +19,3 @@ temp_image_path.close()
 # 一時ファイルをブラウザで開く
 webbrowser.open('file://' + temp_image_path.name)
 
-# 一時ファイルを後片付けする
-import os
-os.remove(temp_image_path.name)
