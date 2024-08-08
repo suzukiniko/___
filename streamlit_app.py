@@ -1,6 +1,10 @@
 # Streamlitライブラリをインポート
 import streamlit as st
-import re
+import pandas as pd
+import numpy as np
+import os
+import random
+import time
 # タイトルを設定
 st.title("歴史人物フラッシュゲーム")
 
@@ -16,3 +20,5 @@ st.write(
     """,
     unsafe_allow_html=True
 )
+
+#
