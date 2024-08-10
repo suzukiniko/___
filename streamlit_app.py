@@ -22,3 +22,28 @@ st.write(
 )
 
 #
+if st.button('始める'):
+    def ask_question(question, correct_answer):
+        """質問を表示してユーザーからの回答を受け付ける関数"""
+        user_answer = input(question + " ")
+        return user_answer.strip().lower() == correct_answer.strip().lower()
+
+    def main():
+    # 画像ファイルが格納されているディレクトリ
+        image_directory = 'images'
+    
+    # 画像ファイルのリストを取得
+        image_files =easy
+    
+        if not image_files:
+            print(f"No image files found in directory '{image_directory}'.")
+            return
+    
+    # ランダムに画像ファイルを選択
+        selected_image = random.choice(image_files)
+        selected_image_path = os.path.join(image_directory, selected_image)
+    
+    # 画像に関する質問と正しい答えを設定
+    # ここでは画像ファイル名を正解として利用する例
+        question = 'What is the name of this image file?'
+        correct_answer = selected_image.split('.')[0]  # 拡張子を除いたファイル名を正解として使用
