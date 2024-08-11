@@ -23,8 +23,17 @@ st.write(
 
 #
 if st.button('始める'):
+    def list_image_files(directory):
+    #指定ディレクトリ内の画像ファイルのリストを作成する関数
+    validextensions = ('.jpg')
+    return [f for f in os.listdir(directory) if f.lower().endswith(validextensions)]
+
+    def display_image_info(image_path):
+    #画像のパスを表示する関数
+    print(f"Please check the image located at: {image_path}")
+
     def ask_question(question, correct_answer):
-        """質問を表示してユーザーからの回答を受け付ける関数"""
+        #質問を表示してユーザーからの回答を受け付ける関数
         user_answer = input(question + " ")
         return user_answer.strip().lower() == correct_answer.strip().lower()
 
@@ -33,7 +42,7 @@ if st.button('始める'):
         image_directory = 'images'
     
     # 画像ファイルのリストを取得
-        image_files =easy
+        image_files = list_image_files(image_directory)
     
         if not image_files:
             print(f"No image files found in directory '{image_directory}'.")
