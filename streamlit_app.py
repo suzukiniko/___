@@ -11,7 +11,8 @@ def list_image_files(directory):
     """指定ディレクトリ内の画像ファイルのリストを作成する関数"""
     valid_extensions = ('.jpg', '.png')  # JPGとPNG両方の拡張子をサポート
     if not os.path.isdir(directory):
-        raise ValueError(f"{directory} は有効なディレクトリではありません")
+        st.error(f"{directory} は有効なディレクトリではありません")
+        return []
     return [f for f in os.listdir(directory) if f.lower().endswith(valid_extensions)]
 
 def main():
@@ -26,7 +27,7 @@ def main():
         return
 
     # ボタンが押されたときにゲームを開始
-    if st.button('easy mode'):
+    if st.button('始める'):
         # ランダムに画像ファイルを選択
         selected_image = random.choice(image_files)
         selected_image_path = os.path.join(image_directory, selected_image)
