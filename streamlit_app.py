@@ -9,7 +9,7 @@ st.write("これから様々な歴史上の偉人が表示されるので、で�
 
 def list_image_files(directory):
     """指定ディレクトリ内の画像ファイルのリストを作成する関数"""
-    valid_extensions = ('.jpg')  # JPGとPNG両方の拡張子をサポート
+    valid_extensions = ('.jpg')
     if not os.path.isdir(directory):
         st.error(f"{directory} は有効なディレクトリではありません")
         return []
@@ -17,7 +17,7 @@ def list_image_files(directory):
 
 def main():
     # 画像ファイルが格納されているディレクトリ
-    image_directory = '/workspaces/___/easy'
+    image_directory = os.path.join(os.getcwd(), 'images')
     
     # 画像ファイルのリストを取得
     image_files = list_image_files(image_directory)
