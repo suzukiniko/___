@@ -17,7 +17,7 @@ def list_image_files(directory):
 
 def main():
     # 画像ファイルが格納されているディレクトリ
-    image_directory = os.path.join(os.getcwd(), 'images')
+    image_directory = os.path.join(os.getcwd(), '/workspaces/___/easy')
     
     # 画像ファイルのリストを取得
     image_files = list_image_files(image_directory)
